@@ -5,32 +5,37 @@ import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.BeforeStep;
-import io.cucumber.java.en.Given;
 import org.openqa.selenium.WebDriver;
-//import static stepDef.LoginTestStepDef.driver;
+
+import java.time.Duration;
 
 public class Hooks {
     public WebDriver driver;
 
     @Before
     public void beforeHooks(){
-        System.out.println("Before Hooks........");
+//        System.out.println("Before Hooks........");
+        String browserName = "chrome";
+        CreateDriver.getInstance().setDriver(browserName);
+        driver = CreateDriver.getInstance().getDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
     @BeforeStep
     public void beforeStepsHooks(){
-        System.out.println("Before Steps Hooks........");
+//        System.out.println("Before Steps Hooks........");
     }
 
     @After
     public void afterHooks(){
-        System.out.println("After Hooks........");
+//        System.out.println("After Hooks........");
         System.out.println("Closing driver..............");
         driver.quit();
     }
 
     @AfterStep
     public void afterStepsHooks(){
-        System.out.println("After Steps Hooks........");
+//        System.out.println("After Steps Hooks........");
     }
 }

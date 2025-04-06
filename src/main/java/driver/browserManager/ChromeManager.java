@@ -9,6 +9,6 @@ public class ChromeManager implements BrowserManager{
 
     @Override
     public WebDriver getDriver() {
-        return new FirefoxDriver();
+        return new ChromeDriver();
     }
 }

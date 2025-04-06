@@ -4,6 +4,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class SaurceDemoLogIn {
 
@@ -28,7 +33,9 @@ public class SaurceDemoLogIn {
     }
 
     public void enterPassoword(String pass) {
-        password.sendKeys(pass);
+        WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement ele = webDriverWait.until(ExpectedConditions.visibilityOf(password));
+        ele.sendKeys(pass);
     }
 
     public void clickLoginButton() {

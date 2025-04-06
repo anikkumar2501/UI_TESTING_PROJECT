@@ -5,38 +5,21 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import pageObjects.SaurceDemoLogIn;
-import utility.FileUtil;
 
-import java.io.File;
 import java.time.Duration;
 
 public class LoginTestStepDef {
-    private WebDriver driver;
 
-    SaurceDemoLogIn saurceDemoLogIn = new SaurceDemoLogIn(driver);
+    public WebDriver driver;
 
-//    private LoginTestStepDef(){
-//       driver =  CreateDriver.getInstance().getDriver();
-//    }
-
-    @Given("user launch {string} driver")
-    public void userLaunchDriver(String browserName) {
-        CreateDriver.getInstance().setDriver(browserName);
-        driver = CreateDriver.getInstance().getDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
-        File ss = takesScreenshot.getScreenshotAs(OutputType.FILE);
-
-
-    }
+    SaurceDemoLogIn saurceDemoLogIn;
 
     @Given("user open url {string}")
     public void user_open_url(String string) {
+        driver = CreateDriver.getInstance().getDriver();
+        saurceDemoLogIn = new SaurceDemoLogIn(driver);
         driver.get(string);
 
     }
