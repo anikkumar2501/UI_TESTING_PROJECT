@@ -19,11 +19,11 @@ public class FileUtil {
         }
     }
 
-//    public static void main(String[] args) throws IOException {
-//        File file = new File(System.getProperty("user.dir")+"\\file");
-//        file.mkdir();
-//        String filePath = file.getAbsolutePath()+".txt";
-//        createFile( filePath);
-//        deleteFile(filePath);
-//    }
+    public static void main(String[] args) throws IOException {
+        File file = new File(System.getProperty("user.dir")+"\\file");
+        file.mkdir();
+        String filePath = file.getAbsolutePath()+".txt";
+        createFile( filePath);
+        deleteFile(filePath);
+    }
 }

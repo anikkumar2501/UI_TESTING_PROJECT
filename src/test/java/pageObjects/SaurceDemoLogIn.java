@@ -2,6 +2,7 @@ package pageObjects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -20,28 +21,28 @@ public class SaurceDemoLogIn {
     }
 
     @FindBy(id = "user-name")
-    WebElement userName;
+    public WebElement userName;
 
     @FindBy(id = "password")
-    WebElement password;
+    public WebElement password;
 
     @FindBy(id = "login-button")
-    WebElement loginButton;
+    public WebElement loginButton;
 
-    public void enterUserName(String user) {
-        userName.sendKeys(user);
-    }
-
-    public void enterPassoword(String pass) {
-        WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement ele = webDriverWait.until(ExpectedConditions.visibilityOf(password));
-        ele.sendKeys(pass);
-    }
-
-    public void clickLoginButton() {
-        loginButton.click();
-
-    }
+//    public void enterUserName(String user) {
+//        userName.sendKeys(user);
+//    }
+//
+//    public void enterPassoword(String pass) {
+//        WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//        WebElement ele = webDriverWait.until(ExpectedConditions.visibilityOf(password));
+//        ele.sendKeys(pass);
+//    }
+//
+//    public void clickLoginButton() {
+//        loginButton.click();
+//
+//    }
 
 
 }

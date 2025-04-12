@@ -8,8 +8,8 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/main/resources/feature",               // Path to feature files
-        glue =  {"stepDef","hooks"},                                       // Path to step definitions
+        features = "src/test/resources/feature",               // Path to feature files
+        glue =  {"stepDef", "hooks"},                                       // Path to step definitions
         dryRun = false,                                        // it is used to check mapping of step to glue code
         monochrome = true,                                     // Make console output readable
         plugin = {"pretty",                                    // For readable console output
@@ -18,7 +18,7 @@ import org.junit.runner.RunWith;
                                                    // Specify scenarios to run
 
 )
-public class JunitRunner {
+public class UITestRunner {
 
 
 }

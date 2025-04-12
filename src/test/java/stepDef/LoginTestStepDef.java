@@ -5,10 +5,10 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import pageObjects.SaurceDemoLogIn;
-
-import java.time.Duration;
 
 public class LoginTestStepDef {
 
@@ -25,26 +25,31 @@ public class LoginTestStepDef {
     }
 
     @When("user input userName as {string}")
-    public void user_input_user_name_as(String string) {
-        saurceDemoLogIn.enterUserName(string);
+    public void user_input_user_name_as(String userName) {
+        saurceDemoLogIn.userName.sendKeys(userName);
 
     }
 
     @When("user input password as {string}")
-    public void user_input_password_as(String string) {
-        saurceDemoLogIn.enterPassoword(string);
+    public void user_input_password_as(String password) {
+        saurceDemoLogIn.password.sendKeys(password);
 
     }
 
     @And("click on login button")
     public void clickOnLoginButton() {
-        saurceDemoLogIn.clickLoginButton();
+        saurceDemoLogIn.loginButton.click();
 
     }
 
     @Then("user should be navigated to homepage")
     public void user_should_be_navigated_to_homepage() {
-
+//        Assert.assertEquals(true, false);
+       if(driver.findElement(By.xpath("//div[text()='Swag Labs']")).isDisplayed()) {
+           System.out.println(" user successfully navigated to Home page....");
+       }else {
+           System.err.println(" user has not been successfully navigated to Home page....");
+       }
     }
 
 
