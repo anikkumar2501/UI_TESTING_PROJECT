@@ -20,13 +20,13 @@ public class SaurceDemoLogIn {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(id = "user-name")
+    @FindBy(name = "username")
     public WebElement userName;
 
-    @FindBy(id = "password")
+    @FindBy(name = "password")
     public WebElement password;
 
-    @FindBy(id = "login-button")
+    @FindBy(xpath = "//button[contains(normalize-space(), 'Login')]")
     public WebElement loginButton;
 
 //    public void enterUserName(String user) {
