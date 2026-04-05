@@ -93,6 +93,9 @@
 <!--                                <value>failedTestCases.AnnotationTransformer</value>-->
                             </property>
                         </properties>
+                        <systemPropertyVariables>
+                            <cucumber.filter.tags>${tags}</cucumber.filter.tags>
+                        </systemPropertyVariables>
                     </configuration>
                 </plugin>
             </plugins>

@@ -13,7 +13,7 @@ import org.testng.annotations.*;
 
 @CucumberOptions(
         features = "src/main/java/feature",               // Path to feature files
-        tags = "@SMOKE",                             // Specify scenarios to run
+//        tags = "@SMOKE",                             // Specify scenarios to run
         glue = {"stepDef", "hooks"},                                       // Path to step definitions
         dryRun = false,                                        // it is used to check mapping of step to glue code
         monochrome = true,                                     // Make console output readable
