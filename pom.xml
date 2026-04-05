@@ -78,15 +78,10 @@
                     <!-- ✅ systemPropertyVariables declared only ONCE -->
                     <systemPropertyVariables>
                         <cucumber.filter.tags>${tags}</cucumber.filter.tags>
+                        <threadCount>${threadCount}</threadCount>
                     </systemPropertyVariables>
 
                     <properties>
-                        <!-- ✅ This correctly passes thread count to TestNG DataProvider -->
-                        <property>
-                            <name>dataproviderthreadcount</name>
-                            <value>${threadCount}</value>
-                        </property>
-
                         <!-- ✅ Your annotation transformer listener -->
                         <property>
                             <name>listener</name>

@@ -14,16 +14,16 @@ public class OrangeHRMLogIn {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(name = "username")
+    @FindBy(id = "user-name")
     public WebElement userName;
 
-    @FindBy(name = "password")
+    @FindBy(id = "password")
     public WebElement password;
 
-    @FindBy(xpath = "//button[contains(normalize-space(), 'Login')]")
+    @FindBy(id = "login-button")
     public WebElement loginButton;
 
-    @FindBy(xpath = "//h6[text()='Dashboard']")
+    @FindBy(xpath = "//div[contains(text(), 'Swag Labs')]")
     public WebElement dashboard;
 
 //    public void enterUserName(String user) {

@@ -27,7 +27,7 @@ import org.testng.annotations.*;
 )
 public class UITestRunnerTestNG extends AbstractTestNGCucumberTests {
 
-    @DataProvider(parallel = false)
+    @DataProvider(parallel = true)
     @Override
     public Object[][] scenarios() {
         return super.scenarios();
@@ -57,8 +57,13 @@ public class UITestRunnerTestNG extends AbstractTestNGCucumberTests {
 
     @BeforeClass
     public void beforeClass(ITestContext context) {
-        System.out.println("Before class of testNG...");
-        context.getCurrentXmlTest().getSuite().setDataProviderThreadCount(6);
+
+        // Read threadCount from Maven -DthreadCount parameter
+        // ✅ No hardcoding - default comes from pom.xml <properties>
+
+        int threadCount = Integer.parseInt(System.getProperty("threadCount"));
+        context.getCurrentXmlTest().getSuite().setDataProviderThreadCount(threadCount);
+        System.out.println("Running with thread count: " + threadCount);
 
 
     }
