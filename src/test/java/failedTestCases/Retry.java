@@ -5,7 +5,7 @@ import org.testng.ITestResult;
 
 public class Retry implements IRetryAnalyzer {
 
-    int maxTry = 1;
+    int maxTry = 0;
     //    int count = 0;
     ThreadLocal<Integer> count = ThreadLocal.withInitial(() -> 0);
 

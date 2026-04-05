@@ -12,20 +12,22 @@ import org.testng.annotations.*;
 
 
 @CucumberOptions(
-        features = "src/test/resources/feature",               // Path to feature files
+        features = "src/main/java/feature",               // Path to feature files
+        tags = "@SMOKE",                             // Specify scenarios to run
         glue = {"stepDef", "hooks"},                                       // Path to step definitions
         dryRun = false,                                        // it is used to check mapping of step to glue code
         monochrome = true,                                     // Make console output readable
         plugin = {"pretty",                                    // For readable console output
                 "html:target/cucumber-reports/cucumber.html",  // HTML report
-                "json:target/cucumber-reports/cucumber.json"
+                "json:target/cucumber-reports/cucumber.json"   // JSON report
                 , "rerun:target/failed.txt",
-                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}, // JSON report
-        tags = "@Test1"// Specify scenarios to run
+                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"     // extent report
+        }
+
 )
 public class UITestRunnerTestNG extends AbstractTestNGCucumberTests {
 
-    @DataProvider(parallel = true)
+    @DataProvider(parallel = false)
     @Override
     public Object[][] scenarios() {
         return super.scenarios();
@@ -57,6 +59,7 @@ public class UITestRunnerTestNG extends AbstractTestNGCucumberTests {
     public void beforeClass(ITestContext context) {
         System.out.println("Before class of testNG...");
         context.getCurrentXmlTest().getSuite().setDataProviderThreadCount(6);
+
 
     }
 

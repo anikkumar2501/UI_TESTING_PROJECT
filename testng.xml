@@ -1,5 +1,6 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="SampleTestSuite">
+    <parameter name="tags" value="@author_Anik1"></parameter>
     <test name="SampleTests">
         <classes>
             <class name="runner.UITestRunnerTestNG"/>

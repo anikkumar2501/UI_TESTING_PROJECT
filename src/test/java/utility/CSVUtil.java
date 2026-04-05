@@ -1,9 +1,6 @@
 package utility;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
 public class CSVUtil {
@@ -16,6 +13,11 @@ public class CSVUtil {
         fileWriter.append("Tugu, tugu@gmail.com, 8877 \n");
         fileWriter.close();
         System.out.println("CSV file created at location " + filePath);
+
+
+        FileReader reader = new FileReader(filePath);
+        BufferedReader bufferedReader = new BufferedReader(reader);
+        System.out.println(bufferedReader.readLine());
     }
 
     public static void readCsvFile(String filePath) throws FileNotFoundException {
@@ -33,7 +35,7 @@ public class CSVUtil {
 
 
     public static void main(String[] args) throws IOException {
-        String filePath = System.getProperty("user.dir") + "\\data\\user.csv";
+        String filePath = System.getProperty("user.dir") + "/data/user.csv";
         createCsvFile(filePath);
         readCsvFile(filePath);
     }
